@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>د. مصباح مروان | Dr. Mesbah Marouane</title>
+    <meta name="description" content="بورتفوليو الدكتور مصباح مروان - طبيب مختص في التبرع بالدم | Portfolio du Dr. Mesbah Marwan - Médecin spécialiste du don de sang" />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+/* ===== VARIABLES & THEME ===== */
+:root {
+    /* Color Palette - Premium Dark Theme */
+    --bg-main: #0a0f1c; 
+    --bg-secondary: #111827; 
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    
+    /* Accents */
+    --accent-gold: #c9993a; /* From portfolio-mesbah */
+    --accent-gold-glow: rgba(201, 153, 58, 0.3);
+    --accent-blue: #38bdf8; 
+    --accent-blue-glow: rgba(56, 189, 248, 0.3);
+    
+    /* Glassmorphism */
+    --glass-bg: rgba(17, 24, 39, 0.65);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.7);
+    
+    /* Typography */
+    --font-ar: 'Tajawal', sans-serif;
+    --font-en: 'Outfit', sans-serif;
+    --font-playfair: 'Playfair Display', serif;
+}
+
+/* ===== RESET & BASE ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
+body {
+    font-family: var(--font-ar);
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    line-height: 1.7;
+    overflow-x: hidden;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.en-font { font-family: var(--font-en); }
+.playfair-font { font-family: var(--font-playfair); font-style: italic; }
+
+/* ── Language Mode Support ── */
+body.lang-fr { direction: ltr; font-family: var(--font-en); }
+body.lang-fr .hero-container { direction: ltr; }
+body.lang-fr .contact-list li { flex-direction: row; }
+
+/* Display rules for Arabic/French toggle */
+.ar-only {}
+.fr-only { display: none; }
+body.lang-fr .ar-only { display: none !important; }
+body.lang-fr .fr-only { display: block !important; }
+body.lang-fr span.fr-only { display: inline !important; }
+body.lang-fr span.ar-only { display: none !important; }
+
+/* Language Toggle Button */
+.lang-toggle {
+    position: fixed;
+    top: 20px;
+    left: 20px; /* Right for LTR will be handled if needed, but fixed left is fine */
+    z-index: 1001;
+    display: flex;
+    gap: 5px;
+    padding: 6px;
+    border-radius: 50px;
+}
+body.lang-fr .lang-toggle {
+    left: auto;
+    right: 20px;
+}
+
+.lang-btn {
+    padding: 6px 16px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 700;
+    font-family: var(--font-ar);
+    transition: all 0.3s ease;
+    color: var(--text-secondary);
+    background: transparent;
+}
+.lang-btn.active {
+    background: linear-gradient(135deg, var(--accent-gold), #a1782a);
+    color: #fff;
+    box-shadow: 0 4px 15px var(--accent-gold-glow);
+}
+
+/* ===== BACKGROUND ANIMATION ===== */
+.bg-animation {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    z-index: -1; overflow: hidden; background-color: var(--bg-main);
+}
+.glow-orb {
+    position: absolute; border-radius: 50%;
+    filter: blur(120px); opacity: 0.4;
+    animation: float 20s infinite ease-in-out;
+}
+.orb-1 {
+    top: -10%; right: -5%; width: 45vw; height: 45vw;
+    background: radial-gradient(circle, var(--accent-gold) 0%, transparent 60%);
+}
+.orb-2 {
+    bottom: -20%; left: -10%; width: 50vw; height: 50vw;
+    background: radial-gradient(circle, var(--accent-blue) 0%, transparent 60%);
+    animation-delay: -5s;
+}
+.orb-3 {
+    top: 30%; left: 30%; width: 35vw; height: 35vw;
+    background: radial-gradient(circle, #6366f1 0%, transparent 60%);
+    animation-delay: -10s;
+}
+@keyframes float {
+    0%, 100% { transform: translate(0, 0); }
+    33% { transform: translate(3vw, -3vw) scale(1.05); }
+    66% { transform: translate(-2vw, 4vw) scale(0.95); }
+}
+
+/* ===== LAYOUT & COMPONENTS ===== */
+.container { width: 90%; max-width: 1200px; margin: 0 auto; }
+section { padding: 100px 0; position: relative; }
+.section-title { text-align: center; font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem; color: var(--text-primary); }
+.section-title span { color: var(--accent-gold); position: relative; }
+.section-desc { text-align: center; color: var(--text-secondary); max-width: 600px; margin: 0 auto 4rem auto; font-size: 1.1rem; }
+
+/* Glass Panel Utility */
+.glass-panel {
+    background: var(--glass-bg); backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px); border: 1px solid var(--glass-border);
+    border-radius: 24px; box-shadow: var(--glass-shadow); padding: 2.5rem;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, border-color 0.4s ease;
+}
+.glass-panel-sm {
+    background: var(--glass-bg); backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border); border-radius: 50px;
+}
+
+/* Buttons */
+.btn-primary, .btn-secondary {
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+    padding: 12px 30px; border-radius: 50px; font-weight: 700; text-decoration: none;
+    transition: all 0.3s ease; cursor: pointer; border: none; font-size: 1.05rem;
+}
+.btn-sm { padding: 8px 20px; font-size: 0.95rem; }
+.btn-primary {
+    background: linear-gradient(135deg, var(--accent-gold), #a1782a); color: #fff;
+    box-shadow: 0 4px 15px var(--accent-gold-glow);
+}
+.btn-primary:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 8px 25px var(--accent-gold-glow); }
+.btn-secondary {
+    background: transparent; color: var(--text-primary); border: 2px solid var(--accent-blue);
+    box-shadow: 0 4px 15px var(--accent-blue-glow);
+}
+.btn-secondary:hover { background: rgba(56, 189, 248, 0.1); transform: translateY(-3px) scale(1.02); }
+
+/* ===== NAVBAR ===== */
+.navbar { position: fixed; top: 0; width: 100%; z-index: 1000; padding: 20px 0; transition: all 0.4s ease; }
+.navbar.scrolled { background: rgba(10, 15, 28, 0.85); backdrop-filter: blur(12px); padding: 15px 0; border-bottom: 1px solid var(--glass-border); }
+.nav-container { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-size: 1.8rem; font-weight: 800; color: var(--text-primary); text-decoration: none; letter-spacing: -0.5px; }
+.logo span { color: var(--accent-gold); }
+.nav-links { display: flex; list-style: none; gap: 2.5rem; align-items: center; }
+.nav-links a:not(.btn-primary) { color: var(--text-primary); text-decoration: none; font-weight: 500; transition: color 0.3s; position: relative; }
+.nav-links a:not(.btn-primary)::after {
+    content: ''; position: absolute; bottom: -5px; right: 0; width: 0; height: 2px;
+    background-color: var(--accent-gold); transition: width 0.3s ease;
+}
+body.lang-fr .nav-links a:not(.btn-primary)::after { right: auto; left: 0; }
+.nav-links a:not(.btn-primary):hover { color: var(--accent-gold); }
+.nav-links a:not(.btn-primary):hover::after { width: 100%; }
+.hamburger { display: none; font-size: 1.5rem; cursor: pointer; color: var(--text-primary); z-index: 1001; }
+
+/* ===== HERO SECTION ===== */
+.hero { min-height: 100vh; display: flex; align-items: center; padding-top: 80px; }
+.hero-container { display: flex; align-items: center; justify-content: space-between; gap: 4rem; }
+.hero-content { flex: 1; max-width: 600px; }
+.hero-badge {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: rgba(201, 153, 58, 0.13); border: 1px solid rgba(201, 153, 58, 0.28);
+    border-radius: 50px; padding: 8px 18px; margin-bottom: 20px;
+}
+.badge-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent-gold); animation: pulse 1.6s ease-in-out infinite; }
+@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.5); opacity: 0.7; } }
+.greeting { font-size: 1.2rem; color: var(--accent-blue); margin-bottom: 0.5rem; font-weight: 600; letter-spacing: 1px; }
+.name {
+    font-size: 4.5rem; font-weight: 800; line-height: 1.2; margin-bottom: 1rem;
+    background: linear-gradient(to right, #fff, var(--accent-gold));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.typed-text { font-size: 1.8rem; margin-bottom: 1.5rem; font-weight: 500; color: var(--text-secondary); }
+.typing-ar, .typing-fr { color: var(--accent-gold); font-weight: 700; }
+.description { font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 2.5rem; line-height: 1.8; }
+.hero-stats { display: flex; gap: 30px; margin-bottom: 2.5rem; }
+.stat-item { text-align: center; }
+.stat-number { font-size: 2.5rem; font-weight: 800; color: var(--accent-gold); line-height: 1; }
+.stat-label { font-size: 0.9rem; color: var(--text-muted); margin-top: 4px; }
+.hero-btns { display: flex; gap: 1rem; margin-bottom: 2.5rem; }
+.hero-image { flex: 1; display: flex; justify-content: center; align-items: center; }
+.image-wrapper {
+    width: 100%; max-width: 450px; aspect-ratio: 1; border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    overflow: hidden; padding: 8px; background: linear-gradient(45deg, var(--accent-gold), var(--accent-blue));
+    animation: morph 8s ease-in-out infinite;
+}
+.image-wrapper img {
+    width: 100%; height: 100%; object-fit: cover; border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    animation: morph 8s ease-in-out infinite reverse; filter: contrast(1.05) brightness(1.05);
+}
+
+/* ===== ABOUT SECTION ===== */
+.about-grid { display: flex; justify-content: center; gap: 4rem; align-items: center; flex-wrap: wrap; }
+.about-image { max-width: 400px; flex: 1; min-width: 300px; }
+.about-image img { width: 100%; height: auto; border-radius: 24px; border: 1px solid var(--glass-border); box-shadow: var(--glass-shadow); }
+.about-text { max-width: 850px; text-align: center; }
+.about-text h3 { font-size: 1.8rem; color: var(--accent-gold); margin-bottom: 1.5rem; }
+.about-text p { font-size: 1.15rem; color: var(--text-secondary); margin-bottom: 1.5rem; }
+.about-list { list-style: none; margin: 2rem auto; text-align: right; display: inline-block; }
+body.lang-fr .about-list { text-align: left; }
+.about-list li {
+    display: flex; align-items: center; gap: 15px; padding: 12px 0;
+    border-bottom: 1px solid var(--glass-border); font-size: 1.1rem; color: rgba(255,255,255,0.9);
+}
+.about-list li:last-child { border: none; }
+.li-icon {
+    flex-shrink: 0; width: 35px; height: 35px; border-radius: 8px;
+    background: rgba(201, 153, 58, 0.15); color: var(--accent-gold);
+    display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
+}
+.about-info-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 2rem;
+    border-top: 1px solid var(--glass-border); padding-top: 2rem; text-align: center;
+}
+.info-item {
+    background: rgba(0,0,0,0.2); border: 1px solid var(--glass-border);
+    border-radius: 12px; padding: 15px;
+}
+.ii-label { font-size: 0.9rem; color: var(--text-muted); text-transform: uppercase; margin-bottom: 5px; }
+.ii-value { font-size: 1.1rem; font-weight: 600; }
+
+/* ===== SERVICES / SPECIALTIES SECTION ===== */
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+.service-card { text-align: center; display: flex; flex-direction: column; align-items: center; padding: 2rem; }
+.service-card:hover { transform: translateY(-10px); border-color: var(--accent-blue); background: rgba(17, 24, 39, 0.8); }
+.service-icon { font-size: 3rem; color: var(--accent-blue); margin-bottom: 1.5rem; transition: transform 0.3s ease, color 0.3s ease; }
+.service-card:hover .service-icon { transform: scale(1.1); color: var(--accent-gold); }
+.service-card h3 { font-size: 1.3rem; margin-bottom: 1rem; color: #fff; }
+.service-card p { color: var(--text-secondary); font-size: 1rem; }
+
+/* ===== MISSIONS SECTION ===== */
+.missions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2.5rem; }
+.mission-card { display: flex; gap: 20px; align-items: flex-start; padding: 2rem; }
+.mission-card:hover { border-color: var(--accent-gold); transform: translateY(-5px); }
+.mission-num {
+    flex-shrink: 0; width: 50px; height: 50px; border-radius: 13px;
+    background: linear-gradient(135deg, rgba(201,153,58,0.2), rgba(201,153,58,0.05));
+    border: 1px solid rgba(201,153,58,0.2); display: flex; align-items: center; justify-content: center;
+    font-size: 20px; font-weight: 900; color: var(--accent-gold);
+}
+.mission-content h3 { font-size: 1.3rem; margin-bottom: 10px; color: #fff; }
+.mission-content p { color: var(--text-secondary); font-size: 1rem; line-height: 1.6; }
+
+/* ===== QUOTE SECTION ===== */
+.quote { text-align: center; }
+.quote-wrap { max-width: 800px; margin: 0 auto; padding: 3rem; position: relative; }
+.quote-icon { font-size: 4rem; color: var(--accent-gold); opacity: 0.2; position: absolute; top: 20px; right: 30px; }
+body.lang-fr .quote-icon { right: auto; left: 30px; transform: scaleX(-1); }
+.quote-text { font-size: 1.6rem; font-weight: 700; line-height: 1.6; color: #fff; margin-bottom: 1.5rem; z-index: 2; position: relative; }
+.quote-author { font-size: 1.1rem; color: var(--accent-gold); font-weight: 600; }
+
+/* ===== PROJECTS SECTION ===== */
+.projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; }
+.project-card { display: flex; flex-direction: column; align-items: flex-start; }
+.project-card:hover { transform: translateY(-10px); border-color: var(--accent-gold); box-shadow: 0 15px 40px rgba(201, 153, 58, 0.15); }
+.project-icon {
+    width: 65px; height: 65px; border-radius: 18px; color: var(--accent-gold);
+    background: linear-gradient(135deg, rgba(201, 153, 58, 0.2), rgba(201, 153, 58, 0.05));
+    border: 1px solid rgba(201, 153, 58, 0.2); display: flex; align-items: center; justify-content: center;
+    font-size: 1.8rem; margin-bottom: 1.5rem; transition: transform 0.3s ease;
+}
+.project-card:hover .project-icon { transform: scale(1.1) rotate(5deg); }
+.project-card h3 { font-size: 1.6rem; margin-bottom: 1rem; color: #fff; letter-spacing: 1px; }
+.project-card p { color: var(--text-secondary); margin-bottom: 2rem; flex-grow: 1; font-size: 1.05rem; }
+.project-link { color: var(--accent-blue); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.5rem; transition: gap 0.3s, color 0.3s; }
+.project-link:hover { gap: 1rem; color: #fff; }
+
+/* ===== CONTACT SECTION ===== */
+.contact-content { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; padding: 3rem; }
+.contact-info h3 { font-size: 1.8rem; margin-bottom: 1rem; color: var(--accent-gold); }
+.contact-info p { color: var(--text-secondary); margin-bottom: 2.5rem; font-size: 1.1rem; }
+.contact-list { list-style: none; }
+.contact-list li { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1.5rem; }
+.contact-icon {
+    width: 45px; height: 45px; border-radius: 50%; background: rgba(56, 189, 248, 0.1);
+    color: var(--accent-blue); display: flex; justify-content: center; align-items: center; font-size: 1.2rem; flex-shrink: 0;
+}
+.contact-list h4 { font-size: 1.1rem; color: #fff; margin-bottom: 0.2rem; }
+.contact-list span { color: var(--text-secondary); font-size: 1rem; }
+.contact-form { display: flex; flex-direction: column; gap: 1.5rem; }
+.input-group input, .input-group textarea {
+    width: 100%; padding: 16px 20px; background: rgba(0, 0, 0, 0.2); border: 1px solid var(--glass-border);
+    border-radius: 12px; color: var(--text-primary); font-family: inherit; font-size: 1.05rem; transition: all 0.3s;
+}
+.input-group input:focus, .input-group textarea:focus { outline: none; border-color: var(--accent-gold); background: rgba(0, 0, 0, 0.4); }
+.input-group textarea { resize: vertical; min-height: 120px; }
+.form-status { margin-top: 10px; font-weight: 500; text-align: center; }
+
+/* ===== FOOTER ===== */
+footer { border-top: 1px solid var(--glass-border); padding: 2rem 0; background: rgba(10, 15, 28, 0.5); backdrop-filter: blur(5px); }
+.footer-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.footer-logo { font-size: 1.5rem; font-weight: 800; }
+.footer-logo span { color: var(--accent-gold); }
+footer p { color: var(--text-secondary); }
+.footer-socials a { background: transparent; border: none; font-size: 1.2rem; margin: 0 5px; color: var(--text-primary); transition: color 0.3s; }
+.footer-socials a:hover { color: var(--accent-gold); }
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 992px) {
+    .hero-container { flex-direction: column-reverse; text-align: center; padding-top: 3rem; gap: 3rem; }
+    .hero-content { display: flex; flex-direction: column; align-items: center; }
+    .contact-content { grid-template-columns: 1fr; padding: 2rem; }
+    .about-info-grid { grid-template-columns: 1fr; }
+    .name { font-size: 3.5rem; }
+}
+@media (max-width: 768px) {
+    .nav-links {
+        position: fixed; top: 0; right: -100%; width: 70vw; height: 100vh;
+        background: var(--bg-secondary); flex-direction: column; justify-content: center;
+        transition: right 0.4s ease, left 0.4s ease; box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    }
+    body.lang-fr .nav-links { right: auto; left: -100%; }
+    .nav-links.active { right: 0; }
+    body.lang-fr .nav-links.active { left: 0; right: auto; }
+    
+    .hamburger { display: block; }
+    .name { font-size: 2.8rem; }
+    .footer-content { flex-direction: column; text-align: center; }
+    .lang-toggle { top: 15px; left: 15px; }
+}
+
+    </style>
+</head>
+<body>
+    <!-- Background Animation -->
+    <div class="bg-animation">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+        <div class="glow-orb orb-3"></div>
+    </div>
+
+    <!-- Language Toggle -->
+    <div class="lang-toggle glass-panel-sm">
+        <button class="lang-btn active" id="btnAr" onclick="setLang('ar')">العربية</button>
+        <button class="lang-btn" id="btnFr" onclick="setLang('fr')">Français</button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <span class="ar-only">مصباح <span>مروان</span></span>
+                <span class="fr-only">Mesbah <span>Marouane</span></span>
+            </a>
+            <ul class="nav-links">
+                <li>
+                    <a href="#home" class="ar-only">الرئيسية</a>
+                    <a href="#home" class="fr-only">Accueil</a>
+                </li>
+                <li>
+                    <a href="#about" class="ar-only">عن الدكتور</a>
+                    <a href="#about" class="fr-only">À Propos</a>
+                </li>
+                <li>
+                    <a href="#specialties" class="ar-only">التخصصات والخدمات</a>
+                    <a href="#specialties" class="fr-only">Spécialités</a>
+                </li>
+                <li>
+                    <a href="#projects" class="ar-only">مشاريعي</a>
+                    <a href="#projects" class="fr-only">Projets</a>
+                </li>
+                <li>
+                    <a href="#contact" class="btn-primary btn-sm">
+                        <span class="ar-only">تواصل معي</span>
+                        <span class="fr-only">Me Contacter</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-container">
+            <div class="hero-content" data-aos="fade-up">
+                <div class="hero-badge">
+                    <span class="badge-dot"></span>
+                    <span class="ar-only">طبيب مختص · متاح للاستشارة</span>
+                    <span class="fr-only">Médecin Spécialiste · Disponible</span>
+                </div>
+                
+                <h2 class="greeting ar-only">مرحباً، أنا</h2>
+                <h2 class="greeting fr-only">Bonjour, je suis</h2>
+                
+                <h1 class="name">
+                    <span class="ar-only">د. مصباح مروان</span>
+                    <span class="fr-only playfair-font">Dr. Mesbah Marouane</span>
+                </h1>
+                
+                <h3 class="typed-text ar-only">أنا <span class="typing-ar"></span></h3>
+                <h3 class="typed-text fr-only">Je suis <span class="typing-fr"></span></h3>
+                
+                <p class="description ar-only">
+                    متخصص بارز في مجال التبرع بالدم وطب نقل الدم، أجمع بين الكفاءة العلمية العالية والالتزام الإنساني العميق. أسعى دائماً إلى إنقاذ الأرواح وتوجيه الشباب وبناء مجتمع أفضل من خلال الطب، التدريب، والعمل الخيري.
+                </p>
+                <p class="description fr-only">
+                    Éminent spécialiste du don de sang et de la médecine transfusionnelle, alliant excellence scientifique et engagement humanitaire profond. J'œuvre à sauver des vies, guider les jeunes et bâtir une meilleure société à travers la médecine, le coaching et l'action caritative.
+                </p>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number en-font" id="s1">+12</div>
+                        <div class="stat-label ar-only">سنة خبرة</div>
+                        <div class="stat-label fr-only">Ans d'exp.</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number en-font" id="s2">+5K</div>
+                        <div class="stat-label ar-only">متبرع موجَّه</div>
+                        <div class="stat-label fr-only">Donneurs</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number en-font" id="s3">+200</div>
+                        <div class="stat-label ar-only">حملة تبرع</div>
+                        <div class="stat-label fr-only">Campagnes</div>
+                    </div>
+                </div>
+
+                <div class="hero-btns">
+                    <a href="#specialties" class="btn-primary">
+                        <span class="ar-only">استكشف أعمالي</span>
+                        <span class="fr-only">Découvrir mes travaux</span>
+                    </a>
+                    <a href="#about" class="btn-secondary">
+                        <span class="ar-only">اعرف المزيد <i class="fas fa-arrow-down"></i></span>
+                        <span class="fr-only">En savoir plus <i class="fas fa-arrow-down"></i></span>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image" data-aos="fade-left" data-aos-delay="200">
+                <div class="image-wrapper glass-panel">
+                    <img src="assent_portfolio/01 mesbah.jpeg" alt="د. مصباح مروان">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">
+                <span class="ar-only">من <span>أنا</span></span>
+                <span class="fr-only">À <span>Propos</span></span>
+            </h2>
+            <div class="about-grid">
+                <div class="about-image" data-aos="fade-right">
+                    <img src="assent_portfolio/02 MESBAH .jpeg" alt="Dr. Mesbah - المشاركات والأعمال">
+                </div>
+                <div class="about-text glass-panel" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="ar-only">طبيب في خدمة الحياة الإنسانية والمجتمع</h3>
+                    <h3 class="fr-only">Médecin au service de la vie humaine et de la société</h3>
+                    
+                    <p class="ar-only">
+                        أمتلك خبرة علمية وميدانية تمتد لأكثر من 12 عاماً في مجال طب نقل الدم وبنوك الدم. أتميز بكفاءة عالية في تشخيص اضطرابات الدم وتنظيم حملات التبرع على مستوى وطني.
+                    </p>
+                    <p class="fr-only">
+                        Je possède une expertise scientifique et de terrain de plus de 12 ans dans le domaine de la médecine transfusionnelle et des banques de sang. J'excelle dans le diagnostic des troubles sanguins et l'organisation de campagnes nationales de don de sang.
+                    </p>
+                    
+                    <ul class="about-list">
+                        <li>
+                            <div class="li-icon"><i class="fas fa-graduation-cap"></i></div>
+                            <span class="ar-only">دكتوراه في طب نقل الدم والأمراض الدموية</span>
+                            <span class="fr-only">Doctorat en médecine transfusionnelle et hématologie</span>
+                        </li>
+                        <li>
+                            <div class="li-icon"><i class="fas fa-lungs"></i></div>
+                            <span class="ar-only">مدرب محترف ومعتمد في التنفسية</span>
+                            <span class="fr-only">Coach professionnel certifié en respiration</span>
+                        </li>
+                        <li>
+                            <div class="li-icon"><i class="fas fa-heartbeat"></i></div>
+                            <span class="ar-only">ناشط فاعل في العمل الخيري ومكافحة الإدمان</span>
+                            <span class="fr-only">Militant actif dans les œuvres caritatives et la lutte contre l'addiction</span>
+                        </li>
+                        <li>
+                            <div class="li-icon"><i class="fas fa-award"></i></div>
+                            <span class="ar-only">حائز على جوائز التميز الطبي وعضو الجمعية الوطنية</span>
+                            <span class="fr-only">Lauréat de prix d'excellence médicale et membre de la Société Nationale</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="about-info-grid">
+                        <div class="info-item">
+                            <div class="ii-label ar-only">الاختصاص</div>
+                            <div class="ii-label fr-only">Spécialité</div>
+                            <div class="ii-value ar-only">طب نقل الدم</div>
+                            <div class="ii-value fr-only">Transfusion Sanguine</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="ii-label ar-only">اللغات</div>
+                            <div class="ii-label fr-only">Langues</div>
+                            <div class="ii-value en-font" style="font-size:13px">العربية · Français · English</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="ii-label ar-only">التوفر</div>
+                            <div class="ii-label fr-only">Disponibilité</div>
+                            <div class="ii-value" style="color:var(--accent-blue)"><i class="fas fa-circle" style="font-size:10px;"></i> <span class="ar-only">متاح للاستشارة</span><span class="fr-only">Disponible</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specialties & Services Section -->
+    <section id="specialties" class="services">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">
+                    <span class="ar-only">التخصصات <span>والخدمات</span></span>
+                    <span class="fr-only">Spécialités <span>et Services</span></span>
+                </h2>
+                <p class="section-desc ar-only">مزيج متكامل بين الخبرة الطبية العميقة، ومهارات التدريب، والعمل المجتمعي.</p>
+                <p class="section-desc fr-only">Un mélange complet entre expertise médicale approfondie, compétences en coaching et travail communautaire.</p>
+            </div>
+            
+            <div class="services-grid">
+                <!-- Medical -->
+                <div class="service-card glass-panel" data-aos="flip-up" data-aos-delay="100">
+                    <div class="service-icon"><i class="fas fa-vial"></i></div>
+                    <h3 class="ar-only">طب نقل الدم وإدارة بنوك الدم</h3>
+                    <h3 class="fr-only">Transfusion & Banques de Sang</h3>
+                    <p class="ar-only">تخصص في جميع جوانب نقل الدم وسلامته، بالإضافة إلى إدارة بنوك الدم وتنظيم المخزون وفق البروتوكولات الطبية.</p>
+                    <p class="fr-only">Spécialisation dans tous les aspects de la transfusion sanguine, sa sécurité, et la gestion des banques de sang.</p>
+                </div>
+                
+                <!-- Campaigns -->
+                <div class="service-card glass-panel" data-aos="flip-up" data-aos-delay="200">
+                    <div class="service-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                    <h3 class="ar-only">تنظيم حملات التبرع بالدم</h3>
+                    <h3 class="fr-only">Campagnes de Don de Sang</h3>
+                    <p class="ar-only">تخطيط وتنفيذ حملات تبرع بالدم على مستوى وطني وجهوي مع تنسيق الفرق الطبية للتوعية وجمع الدم.</p>
+                    <p class="fr-only">Planification et exécution de campagnes de don de sang aux niveaux national et régional avec coordination d'équipes.</p>
+                </div>
+                
+                <!-- Coaching -->
+                <div class="service-card glass-panel" data-aos="flip-up" data-aos-delay="300">
+                    <div class="service-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                    <h3 class="ar-only">دورات تكوينية وسيمينارات</h3>
+                    <h3 class="fr-only">Formations & Séminaires</h3>
+                    <p class="ar-only">تنظيم دورات تدريبية متخصصة وإدارة سيمينارات في مجالات الصحة، التنفسية، والتنمية الذاتية.</p>
+                    <p class="fr-only">Organisation de formations spécialisées et gestion de séminaires dans les domaines de la santé, respiration, et développement personnel.</p>
+                </div>
+
+                <!-- Awareness & Charity -->
+                <div class="service-card glass-panel" data-aos="flip-up" data-aos-delay="400">
+                    <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3 class="ar-only">مكافحة الإدمان والعمل الخيري</h3>
+                    <h3 class="fr-only">Lutte contre l'addiction</h3>
+                    <p class="ar-only">إطلاق مبادرات خيرية وبرامج فعالة لمكافحة الإدمان وتقديم الدعم النفسي والصحي للشباب والمجتمع.</p>
+                    <p class="fr-only">Lancement d'initiatives caritatives et de programmes efficaces pour lutter contre l'addiction et offrir un soutien psychologique.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Missions (Merged as Text blocks or simple list) -->
+    <section id="missions" class="missions">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">
+                <span class="ar-only">رسالتي <span>وأهدافي</span></span>
+                <span class="fr-only">Ma Mission <span>et Objectifs</span></span>
+            </h2>
+            <div class="missions-grid">
+                <div class="mission-card glass-panel" data-aos="fade-right">
+                    <div class="mission-num en-font">01</div>
+                    <div class="mission-content">
+                        <h3 class="ar-only">إنقاذ الأرواح ونشر ثقافة التبرع</h3>
+                        <h3 class="fr-only">Sauver des Vies et Diffuser la Culture du Don</h3>
+                        <p class="ar-only">كل قطرة دم تُنقذ حياة. هدفي تطوير منظومة التبرع وتحويلها من فعل فردي إلى ثقافة مجتمعية راسخة.</p>
+                        <p class="fr-only">Chaque goutte de sang sauve une vie. Mon objectif est de transformer le don d'un acte individuel en une culture communautaire.</p>
+                    </div>
+                </div>
+                <div class="mission-card glass-panel" data-aos="fade-left">
+                    <div class="mission-num en-font">02</div>
+                    <div class="mission-content">
+                        <h3 class="ar-only">رفع معايير السلامة وتطوير الكوادر</h3>
+                        <h3 class="fr-only">Sécurité et Formation des Cadres</h3>
+                        <p class="ar-only">تطبيق أعلى معايير السلامة الدولية في جمع وتخزين الدم، وتدريب كوادر طبية شابة لمواصلة هذه الرسالة الإنسانية.</p>
+                        <p class="fr-only">Appliquer les normes de sécurité internationales et former de jeunes cadres médicaux pour poursuivre cette mission humanitaire.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section id="quote" class="quote">
+        <div class="container">
+            <div class="quote-wrap glass-panel" data-aos="zoom-in">
+                <i class="fas fa-quote-right quote-icon"></i>
+                <p class="quote-text ar-only">التبرع بالدم ليس مجرد إجراء طبي — إنه هبة الحياة التي تمنحها لشخص لا تعرفه، وهذا هو أروع ما في الإنسانية.</p>
+                <p class="quote-text fr-only playfair-font">Le don de sang n'est pas qu'un simple acte médical — c'est le don de la vie que vous offrez à quelqu'un que vous ne connaissez pas, et c'est ce qu'il y a de plus beau dans l'humanité.</p>
+                <div class="quote-author">
+                    <span class="ar-only">— د. مصباح مروان</span>
+                    <span class="fr-only">— Dr. Mesbah Marouane</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">
+                <span class="ar-only">مشاريعي <span>الخاصة</span></span>
+                <span class="fr-only">Mes <span>Projets</span></span>
+            </h2>
+            <div class="projects-grid">
+                <div class="project-card glass-panel" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="assent_portfolio/DOCSTORE.png" alt="DOC STORE DZ" style="width: 100%; height: auto; border-radius: 12px; margin-bottom: 1.5rem; object-fit: cover;">
+                    <h3 class="en-font">DOC STORE DZ</h3>
+                    <p class="ar-only">مشروع مبتكر يهدف إلى تقديم مستلزمات وحلول طبية عالية الجودة بطريقة عصرية وفعالة لتلبية احتياجات القطاع الصحي.</p>
+                    <p class="fr-only">Un projet innovant visant à fournir des fournitures et solutions médicales de haute qualité de manière moderne et efficace.</p>
+                    <a href="https://s22market.vercel.app/store/doc-store-dz" target="_blank" class="project-link">
+                        <span class="ar-only">استكشف المشروع <i class="fas fa-arrow-left"></i></span>
+                        <span class="fr-only">Découvrir <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                </div>
+                <div class="project-card glass-panel" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="assent_portfolio/EVE NT.png" alt="EVEN TECK" style="width: 100%; height: auto; border-radius: 12px; margin-bottom: 1.5rem; object-fit: cover;">
+                    <h3 class="en-font">EVEN TECK</h3>
+                    <p class="ar-only">مبادرة تقنية تهدف إلى دمج التكنولوجيا الحديثة في مجالات الأعمال والصحة لتقديم حلول متطورة وإدارة الفعاليات التقنية.</p>
+                    <p class="fr-only">Une initiative technologique visant à intégrer la technologie moderne dans les affaires et la santé pour gérer des événements technologiques.</p>
+                    <a href="#" class="project-link">
+                        <span class="ar-only">استكشف المشروع <i class="fas fa-arrow-left"></i></span>
+                        <span class="fr-only">Découvrir <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                </div>
+                
+                <!-- Project 3: Youth Charity & Volunteering -->
+                <div class="project-card glass-panel" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="assent_portfolio/youth_volunteering.jpg" alt="تأهيل شباب التطوع" style="width: 100%; height: auto; border-radius: 12px; margin-bottom: 1.5rem; object-fit: cover;">
+                    <h3 class="ar-only">تأهيل شباب التطوع</h3>
+                    <h3 class="fr-only">Jeunes Bénévoles</h3>
+                    <p class="ar-only">مشروع متكامل لتحفيز وتأهيل الشباب في ميدان العمل التطوعي والخيري، يشمل برامج تكوينية شاملة وتقديم نصائح وتوجيهات مستمرة لضمان تأثير إيجابي في المجتمع.</p>
+                    <p class="fr-only">Un projet intégré pour motiver et qualifier les jeunes dans le bénévolat et le domaine caritatif, incluant des formations et des conseils continus.</p>
+                    <a href="#" class="project-link">
+                        <span class="ar-only">استكشف المشروع <i class="fas fa-arrow-left"></i></span>
+                        <span class="fr-only">Découvrir <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                </div>
+                
+                <!-- Project 4: Blood Donation Events -->
+                <div class="project-card glass-panel" data-aos="zoom-in" data-aos-delay="400">
+                    <img src="assent_portfolio/blood_donation_event.jpg" alt="فعاليات التبرع بالدم" style="width: 100%; height: auto; border-radius: 12px; margin-bottom: 1.5rem; object-fit: cover;">
+                    <h3 class="ar-only">فعاليات التبرع بالدم</h3>
+                    <h3 class="fr-only">Événements de Don de Sang</h3>
+                    <p class="ar-only">تنظيم فعاليات مبتكرة وجذابة مصاحبة لحملات التبرع بالدم، مصممة خصيصاً لجلب انتباه الجمهور والمتطوعين وخلق بيئة تفاعلية تشجع على المشاركة المجتمعية المستمرة.</p>
+                    <p class="fr-only">Organisation d'événements innovants et attractifs en marge des campagnes de don de sang, conçus pour attirer le public et créer un environnement interactif.</p>
+                    <a href="#" class="project-link">
+                        <span class="ar-only">استكشف المشروع <i class="fas fa-arrow-left"></i></span>
+                        <span class="fr-only">Découvrir <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">
+                <span class="ar-only">تواصل <span>معي</span></span>
+                <span class="fr-only">Me <span>Contacter</span></span>
+            </h2>
+            <div class="contact-content glass-panel" data-aos="fade-up" data-aos-delay="100">
+                <div class="contact-info">
+                    <h3 class="ar-only">دعنا نتعاون من أجل مستقبل أفضل</h3>
+                    <h3 class="fr-only">Collaborons pour un avenir meilleur</h3>
+                    <p class="ar-only">هل تريد التواصل؟ سواء لاستفسار طبي، دعوة لمحاضرة، تعاون في مشروع تقني، أو تنظيم حملة تبرع — أنا في خدمتك.</p>
+                    <p class="fr-only">Que ce soit pour une question médicale, une invitation, une collaboration technologique ou une campagne de don — je suis à votre service.</p>
+                    
+                    <ul class="contact-list">
+                        <li>
+                            <a href="https://wa.me/213560569126" target="_blank" style="display: flex; align-items: center; gap: 1.5rem; text-decoration: none;">
+                                <div class="contact-icon" style="background: rgba(37, 211, 102, 0.1); color: #25D366;"><i class="fab fa-whatsapp"></i></div>
+                                <div>
+                                    <h4 class="ar-only">واتساب</h4>
+                                    <h4 class="fr-only">WhatsApp</h4>
+                                    <span class="en-font" style="color: var(--text-secondary);">+213 560 56 91 26</span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <div class="input-group">
+                        <input type="text" id="name" placeholder="الاسم الكامل / Nom Complet" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="email" id="email" placeholder="البريد الإلكتروني / Email" required>
+                    </div>
+                    <div class="input-group">
+                        <textarea id="message" placeholder="اكتب رسالتك هنا... / Écrivez votre message..." rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">
+                        <span class="ar-only">إرسال الرسالة <i class="fas fa-paper-plane"></i></span>
+                        <span class="fr-only">Envoyer <i class="fas fa-paper-plane"></i></span>
+                    </button>
+                    <div class="form-status" id="formStatus"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="ar-only">مصباح <span>مروان</span></span>
+                    <span class="fr-only">Mesbah <span>Marouane</span></span>
+                </div>
+                <p>
+                    <span class="ar-only">&copy; 2026 د. مصباح مروان. جميع الحقوق محفوظة.</span>
+                    <span class="fr-only">&copy; 2026 Dr. Mesbah Marouane. Tous droits réservés.</span>
+                </p>
+                <div class="social-links footer-socials">
+                    <a href="https://wa.me/213560569126" target="_blank" style="color: #25D366;"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+// ── Language Toggle Function ──
+function setLang(lang) {
+    const body = document.body;
+    const btnAr = document.getElementById('btnAr');
+    const btnFr = document.getElementById('btnFr');
+    
+    if (lang === 'fr') {
+        body.classList.add('lang-fr');
+        body.setAttribute('lang', 'fr');
+        body.removeAttribute('dir');
+        if(btnFr) btnFr.classList.add('active');
+        if(btnAr) btnAr.classList.remove('active');
+        
+        // Update document title
+        document.title = "Dr. Mesbah Marouane | Portfolio";
+    } else {
+        body.classList.remove('lang-fr');
+        body.setAttribute('lang', 'ar');
+        body.setAttribute('dir', 'rtl');
+        if(btnAr) btnAr.classList.add('active');
+        if(btnFr) btnFr.classList.remove('active');
+        
+        // Update document title
+        document.title = "د. مصباح مروان | بورتفوليو احترافي";
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    // 1. Initialize AOS (Animate on Scroll)
+    AOS.init({
+        duration: 1000,
+        once: true, 
+        offset: 50,
+        easing: 'ease-out-cubic',
+    });
+
+    // 2. Initialize Typed.js for dynamic text in Hero section
+    // Arabic Typed
+    const typedArElement = document.querySelector('.typing-ar');
+    if (typedArElement) {
+        new Typed('.typing-ar', {
+            strings: [
+                'طبيب مختص في نقل الدم.',
+                'مدرب تنفسية.',
+                'ناشط في العمل الخيري.',
+                'رائد أعمال.'
+            ],
+            typeSpeed: 60,
+            backSpeed: 40,
+            backDelay: 2000,
+            loop: true,
+            cursorChar: '|'
+        });
+    }
+
+    // French Typed
+    const typedFrElement = document.querySelector('.typing-fr');
+    if (typedFrElement) {
+        new Typed('.typing-fr', {
+            strings: [
+                'Médecin Spécialiste.',
+                'Coach en Respiration.',
+                'Militant Associatif.',
+                'Entrepreneur.'
+            ],
+            typeSpeed: 60,
+            backSpeed: 40,
+            backDelay: 2000,
+            loop: true,
+            cursorChar: '|'
+        });
+    }
+
+    // 3. Navbar scroll effect
+    const navbar = document.querySelector('.navbar');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+
+    // 4. Mobile Menu Toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    const navItems = document.querySelectorAll('.nav-links a');
+    
+    if (hamburger) {
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            
+            const icon = hamburger.querySelector('i');
+            if(navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+    }
+
+    navItems.forEach(item => {
+        item.addEventListener('click', () => {
+            if (navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                const icon = hamburger.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+    });
+
+    // 5. Form submission simulation
+    const contactForm = document.getElementById('contactForm');
+    const formStatus = document.getElementById('formStatus');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault(); 
+            
+            const btn = contactForm.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+            const isFr = document.body.classList.contains('lang-fr');
+            
+            btn.innerHTML = isFr ? '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...' : '<i class="fas fa-spinner fa-spin"></i> جاري الإرسال...';
+            btn.style.opacity = '0.8';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                const successMsg = isFr ? 'Message envoyé avec succès! Je vous contacterai bientôt.' : 'تم إرسال رسالتك بنجاح! سأتواصل معك قريباً.';
+                formStatus.innerHTML = `<span style="color: #4ade80;"><i class="fas fa-check-circle"></i> ${successMsg}</span>`;
+                contactForm.reset();
+                
+                btn.innerHTML = originalText;
+                btn.style.opacity = '1';
+                btn.disabled = false;
+                
+                setTimeout(() => {
+                    formStatus.innerHTML = '';
+                }, 5000);
+            }, 1500);
+        });
+    }
+});
+
+    </script>
+</body>
+</html>
